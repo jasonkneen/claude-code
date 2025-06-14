@@ -1,44 +1,34 @@
-# Claude Code (Research Preview)
+# Claude Code
 
-![](https://img.shields.io/badge/Node.js-18%2B-brightgreen?style=flat-square) [![npm]](https://www.npmjs.com/package/json-schema-to-typescript)
+![](https://img.shields.io/badge/Node.js-18%2B-brightgreen?style=flat-square) [![npm]](https://www.npmjs.com/package/@anthropic-ai/claude-code)
 
 [npm]: https://img.shields.io/npm/v/@anthropic-ai/claude-code.svg?style=flat-square
 
-Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows - all through natural language commands.
+Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster by executing routine tasks, explaining complex code, and handling git workflows -- all through natural language commands. Use it in your terminal, IDE, or tag @claude on Github.
 
-Some of its key capabilities include:
+**Learn more in the [official documentation](https://docs.anthropic.com/en/docs/claude-code/overview)**.
 
-- Edit files and fix bugs across your codebase
-- Answer questions about your code's architecture and logic
-- Execute and fix tests, lint, and other commands
-- Search through git history, resolve merge conflicts, and create commits and PRs
-
-**Learn more in the [official documentation](https://docs.anthropic.com/en/docs/agents/claude-code/introduction)**.
+<img src="./demo.gif" />
 
 ## Get started
 
-1. Run the following command in your terminal: <br />
-  ```sh
-  npm install -g @anthropic-ai/claude-code
-  ```
-2. Navigate to your project directory and run <code>claude</code>
-3. Complete the one-time OAuth process with your Anthropic Console account.
+1. Install Claude Code:
 
-### Research Preview
+```sh
+npm install -g @anthropic-ai/claude-code
+```
 
-We're launching Claude Code as a beta product in research preview to learn directly from developers about their experiences collaborating with AI agents. Our aim is to learn more about how developers prefer to collaborate with AI tools, which development workflows benefit most from working with the agent, and how we can make the agent experience more intuitive.
+2. Navigate to your project directory and run `claude`.
 
-This is an early version of the product experience, and it's likely to evolve as we learn more about developer preferences. Claude Code is an early look into what's possible with agentic coding, and we know there are areas to improve. We plan to enhance tool execution reliability, support for long-running commands, terminal rendering, and Claude's self-knowledge of its capabilities -- as well as many other product experiences -- over the coming weeks.
+## Reporting Bugs
 
-### Reporting Bugs
+We welcome your feedback. Use the `/bug` command to report issues directly within Claude Code, or file a [GitHub issue](https://github.com/anthropics/claude-code/issues).
 
-We welcome feedback during this beta period. Use the `/bug` command to report issues directly within Claude Code, or file a [GitHub issue](https://github.com/anthropics/claude-code/issues).
-
-### Data collection, usage, and retention
+## Data collection, usage, and retention
 
 When you use Claude Code, we collect feedback, which includes usage data (such as code acceptance or rejections), associated conversation data, and user feedback submitted via the `/bug` command.
 
-#### How we use your data
+### How we use your data
 
 We may use feedback to improve our products and services, but we will not train generative models using your feedback from Claude Code. Given their potentially sensitive nature, we store user feedback transcripts for only 30 days.
 
