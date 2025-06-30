@@ -1,5 +1,71 @@
 # Changelog
 
+## 1.0.35
+
+- Added support for MCP OAuth Authorization Server discovery
+
+## 1.0.34
+
+- Fixed a memory leak causing a MaxListenersExceededWarning message to appear
+
+## 1.0.33
+
+- Improved logging functionality with session ID support
+- Added undo functionality (Ctrl+Z and vim 'u' command)
+- Improvements to plan mode
+
+## 1.0.32
+
+- Updated loopback config for litellm
+- Added forceLoginMethod setting to bypass login selection screen
+
+## 1.0.31
+
+- Fixed a bug where ~/.claude.json would get reset when file contained invalid JSON
+
+## 1.0.30
+
+- Custom slash commands: Run bash output, @-mention files, enable thinking with thinking keywords
+- Improved file path autocomplete with filename matching
+- Added timestamps in Ctrl-r mode and fixed Ctrl-c handling
+- Enhanced jq regex support for complex filters with pipes and select
+
+## 1.0.29
+
+- Improved CJK character support in cursor navigation and rendering
+
+## 1.0.28
+
+- Slash commands: Fix selector display during history navigation
+- Resizes images before upload to prevent API size limit errors
+- Added XDG_CONFIG_HOME support to configuration directory
+- Performance optimizations for memory usage
+- New attributes (terminal.type, language) in OpenTelemetry logging
+
+## 1.0.27
+
+- Streamable HTTP MCP servers are now supported
+- Remote MCP servers (SSE and HTTP) now support OAuth
+- MCP resources can now be @-mentioned
+- /resume slash command to switch conversations within Claude Code
+
+## 1.0.25
+
+- Slash commands: moved "project" and "user" prefixes to descriptions
+- Slash commands: improved reliability for command discovery
+- Improved support for Ghostty
+- Improved web search reliability
+
+## 1.0.24
+
+- Improved /mcp output
+- Fixed a bug where settings arrays got overwritten instead of merged
+
+## 1.0.23
+
+- Released TypeScript SDK: import @anthropic-ai/claude-code to get started
+- Released Python SDK: pip install claude-code-sdk to get started
+
 ## 1.0.22
 
 - SDK: Renamed `total_cost` to `total_cost_usd`
