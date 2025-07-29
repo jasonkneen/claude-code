@@ -1,5 +1,153 @@
 # Changelog
 
+## 1.0.62
+
+- Added @-mention support with typeahead for custom agents. @<your-custom-agent> to invoke it
+- Hooks: Added SessionStart hook for new session initialization
+- /add-dir command now supports typeahead for directory paths
+- Improved network connectivity check reliability
+
+## 1.0.61
+
+- Transcript mode (Ctrl+R): Changed Esc to exit transcript mode rather than interrupt
+- Settings: Added `--settings` flag to load settings from a JSON file
+- Settings: Fixed resolution of settings files paths that are symlinks
+- OTEL: Fixed reporting of wrong organization after authentication changes
+- Slash commands: Fixed permissions checking for allowed-tools with Bash
+- IDE: Added support for pasting images in VSCode MacOS using ⌘+V
+- IDE: Added `CLAUDE_CODE_AUTO_CONNECT_IDE=false` for disabling IDE auto-connection
+- Added `CLAUDE_CODE_SHELL_PREFIX` for wrapping Claude and user-provided shell commands run by Claude Code
+
+## 1.0.60
+
+- You can now create custom subagents for specialized tasks! Run /agents to get started
+
+## 1.0.59
+
+- SDK: Added tool confirmation support with canUseTool callback
+- SDK: Allow specifying env for spawned process
+- Hooks: Exposed PermissionDecision to hooks (including "ask")
+- Hooks: UserPromptSubmit now supports additionalContext in advanced JSON output
+- Fixed issue where some Max users that specified Opus would still see fallback to Sonnet
+
+## 1.0.58
+
+- Added support for reading PDFs
+- MCP: Improved server health status display in 'claude mcp list'
+- Hooks: Added CLAUDE_PROJECT_DIR env var for hook commands
+
+## 1.0.57
+
+- Added support for specifying a model in slash commands
+- Improved permission messages to help Claude understand allowed tools
+- Fix: Remove trailing newlines from bash output in terminal wrapping
+
+## 1.0.56
+
+- Windows: Enabled shift+tab for mode switching on versions of Node.js that support terminal VT mode
+- Fixes for WSL IDE detection
+- Fix an issue causing awsRefreshHelper changes to .aws directory not to be picked up
+
+## 1.0.55
+
+- Clarified knowledge cutoff for Opus 4 and Sonnet 4 models
+- Windows: fixed Ctrl+Z crash
+- SDK: Added ability to capture error logging
+- Add --system-prompt-file option to override system prompt in print mode
+
+## 1.0.54
+
+- Hooks: Added UserPromptSubmit hook and the current working directory to hook inputs
+- Custom slash commands: Added argument-hint to frontmatter
+- Windows: OAuth uses port 45454 and properly constructs browser URL
+- Windows: mode switching now uses alt + m, and plan mode renders properly
+- Shell: Switch to in-memory shell snapshot to fix file-related errors
+
+## 1.0.53
+
+- Updated @-mention file truncation from 100 lines to 2000 lines
+- Add helper script settings for AWS token refresh: awsAuthRefresh (for foreground operations like aws sso login) and awsCredentialExport (for background operation with STS-like response).
+
+## 1.0.52
+
+- Added support for MCP server instructions
+
+## 1.0.51
+
+- Added support for native Windows (requires Git for Windows)
+- Added support for Bedrock API keys through environment variable AWS_BEARER_TOKEN_BEDROCK
+- Settings: /doctor can now help you identify and fix invalid setting files
+- `--append-system-prompt` can now be used in interactive mode, not just --print/-p.
+- Increased auto-compact warning threshold from 60% to 80%
+- Fixed an issue with handling user directories with spaces for shell snapshots
+- OTEL resource now includes os.type, os.version, host.arch, and wsl.version (if running on Windows Subsystem for Linux)
+- Custom slash commands: Fixed user-level commands in subdirectories
+- Plan mode: Fixed issue where rejected plan from sub-task would get discarded
+
+## 1.0.48
+
+- Fixed a bug in v1.0.45 where the app would sometimes freeze on launch
+- Added progress messages to Bash tool based on the last 5 lines of command output
+- Added expanding variables support for MCP server configuration
+- Moved shell snapshots from /tmp to ~/.claude for more reliable Bash tool calls
+- Improved IDE extension path handling when Claude Code runs in WSL
+- Hooks: Added a PreCompact hook
+- Vim mode: Added c, f/F, t/T
+
+## 1.0.45
+
+- Redesigned Search (Grep) tool with new tool input parameters and features
+- Disabled IDE diffs for notebook files, fixing "Timeout waiting after 1000ms" error
+- Fixed config file corruption issue by enforcing atomic writes
+- Updated prompt input undo to Ctrl+\_ to avoid breaking existing Ctrl+U behavior, matching zsh's undo shortcut
+- Stop Hooks: Fixed transcript path after /clear and fixed triggering when loop ends with tool call
+- Custom slash commands: Restored namespacing in command names based on subdirectories. For example, .claude/commands/frontend/component.md is now /frontend:component, not /component.
+
+## 1.0.44
+
+- New /export command lets you quickly export a conversation for sharing
+- MCP: resource_link tool results are now supported
+- MCP: tool annotations and tool titles now display in /mcp view
+- Changed Ctrl+Z to suspend Claude Code. Resume by running `fg`. Prompt input undo is now Ctrl+U.
+
+## 1.0.43
+
+- Fixed a bug where the theme selector was saving excessively
+- Hooks: Added EPIPE system error handling
+
+## 1.0.42
+
+- Added tilde (`~`) expansion support to `/add-dir` command
+
+## 1.0.41
+
+- Hooks: Split Stop hook triggering into Stop and SubagentStop
+- Hooks: Enabled optional timeout configuration for each command
+- Hooks: Added "hook_event_name" to hook input
+- Fixed a bug where MCP tools would display twice in tool list
+- New tool parameters JSON for Bash tool in `tool_decision` event
+
+## 1.0.40
+
+- Fixed a bug causing API connection errors with UNABLE_TO_GET_ISSUER_CERT_LOCALLY if `NODE_EXTRA_CA_CERTS` was set
+
+## 1.0.39
+
+- New Active Time metric in OpenTelemetry logging
+
+## 1.0.38
+
+- Released hooks. Special thanks to community input in https://github.com/anthropics/claude-code/issues/712. Docs: https://docs.anthropic.com/en/docs/claude-code/hooks
+
+## 1.0.37
+
+- Remove ability to set `Proxy-Authorization` header via ANTHROPIC_AUTH_TOKEN or apiKeyHelper
+
+## 1.0.36
+
+- Web search now takes today's date into context
+- Fixed a bug where stdio MCP servers were not terminating properly on exit
+
 ## 1.0.35
 
 - Added support for MCP OAuth Authorization Server discovery
@@ -11,7 +159,7 @@
 ## 1.0.33
 
 - Improved logging functionality with session ID support
-- Added undo functionality (Ctrl+Z and vim 'u' command)
+- Added prompt input undo functionality (Ctrl+Z and vim 'u' command)
 - Improvements to plan mode
 
 ## 1.0.32
