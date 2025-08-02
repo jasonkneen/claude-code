@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.0.65
+
+- IDE: Fixed connection stability issues and error handling for diagnostics
+- Windows: Fixed shell environment setup for users without .bashrc files
+
+## 1.0.64
+
+- Agents: Added model customization support - you can now specify which model an agent should use
+- Agents: Fixed unintended access to the recursive agent tool
+- Hooks: Added systemMessage field to hook JSON output for displaying warnings and context
+- SDK: Fixed user input tracking across multi-turn conversations
+- Added hidden files to file search and @-mention suggestions
+
+## 1.0.63
+
+- Windows: Fixed file search, @agent mentions, and custom slash commands functionality
+
 ## 1.0.62
 
 - Added @-mention support with typeahead for custom agents. @<your-custom-agent> to invoke it

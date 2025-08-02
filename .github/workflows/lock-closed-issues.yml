@@ -1,0 +1,28 @@
+name: "Lock Stale Issues"
+
+on:
+  schedule:
+    # 8am Pacific = 1pm UTC (2pm UTC during DST)
+    - cron: "0 14 * * *"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+concurrency:
+  group: lock-threads
+
+jobs:
+  lock-threads:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: dessant/lock-threads@1bf7ec25051fe7c00bdd17e6a7cf3d7bfb7dc771 # v5.0.1
+        with:
+          issue-inactive-days: "7"
+          process-only: "issues"
+          log-output: true
+          issue-comment: >
+            This issue has been automatically locked since it was
+            closed and has not had any activity for 7 days.
+            If you're experiencing a similar issue, please file a new issue
+            and reference this one if it's relevant.
