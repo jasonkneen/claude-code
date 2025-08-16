@@ -1,5 +1,66 @@
 # Changelog
 
+## 1.0.82
+
+- SDK: Add request cancellation support
+- SDK: New additionalDirectories option to search custom paths, improved slash command processing
+- Settings: Validation prevents invalid fields in .claude/settings.json files
+- MCP: Improve tool name consistency
+- Bash: Fix crash when Claude tries to automatically read large files
+
+## 1.0.81
+
+- Released output styles, including new built-in educational output styles "Explanatory" and "Learning". Docs: https://docs.anthropic.com/en/docs/claude-code/output-styles
+- Agents: Fix custom agent loading when agent files are unparsable
+
+## 1.0.80
+
+- UI improvements: Fix text contrast for custom subagent colors and spinner rendering issues
+
+## 1.0.77
+
+- Bash tool: Fix heredoc and multiline string escaping, improve stderr redirection handling
+- SDK: Add session support and permission denial tracking
+- Fix token limit errors in conversation summarization
+- Opus Plan Mode: New setting in `/model` to run Opus only in plan mode, Sonnet otherwise
+
+## 1.0.73
+
+- MCP: Support multiple config files with `--mcp-config file1.json file2.json`
+- MCP: Press Esc to cancel OAuth authentication flows
+- Bash: Improved command validation and reduced false security warnings
+- UI: Enhanced spinner animations and status line visual hierarchy
+- Linux: Added support for Alpine and musl-based distributions (requires separate ripgrep installation)
+
+## 1.0.72
+
+- Ask permissions: have Claude Code always ask for confirmation to use specific tools with /permissions
+
+## 1.0.71
+
+- Background commands: (Ctrl-b) to run any Bash command in the background so Claude can keep working (great for dev servers, tailing logs, etc.)
+- Customizable status line: add your terminal prompt to Claude Code with /statusline
+
+## 1.0.70
+
+- Performance: Optimized message rendering for better performance with large contexts
+- Windows: Fixed native file search, ripgrep, and subagent functionality
+- Added support for @-mentions in slash command arguments
+
+## 1.0.69
+
+- Upgraded Opus to version 4.1
+
+## 1.0.68
+
+- Fix incorrect model names being used for certain commands like `/pr-comments`
+- Windows: improve permissions checks for allow / deny tools and project trust. This may create a new project entry in `.claude.json` - manually merge the history field if desired.
+- Windows: improve sub-process spawning to eliminate "No such file or directory" when running commands like pnpm
+- Enhanced /doctor command with CLAUDE.md and MCP tool context for self-serve debugging
+- SDK: Added canUseTool callback support for tool confirmation
+- Added `disableAllHooks` setting
+- Improved file suggestions performance in large repos
+
 ## 1.0.65
 
 - IDE: Fixed connection stability issues and error handling for diagnostics
